@@ -25,7 +25,7 @@ SECRET_KEY = 'o40q5r5j+mf6jkwkvro0z527$g#so*0=6824^6&g-%n)#_l2os'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://localhost:3000','*']
 
 
 # Application definition
@@ -38,10 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
-    'chat'
+    'chat',
+    'rest_framework',
+    'room',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'youtubeparty_backend.urls'
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -75,13 +80,20 @@ WSGI_APPLICATION = 'youtubeparty_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+MANGO_JWT_SETTINGS = {
+    "db_host": "localhost", # Use srv host if connecting with MongoDB Atlas Cluster
+    "db_port": "27017", # Don't include this field if connecting with MongoDB Atlas Cluster
+    "db_name": "youtubeparty",
+    "db_user": "youtubePartyAdmin",
+    "db_pass": "pass1234"
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
