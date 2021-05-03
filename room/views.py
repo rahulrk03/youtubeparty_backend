@@ -42,9 +42,13 @@ class JoinRoomAPI(APIView):
                     exist_room['total_members'] += 1
                     database['room'].update({"_id": exist_room['_id']},
                                             {"$set": exist_room})
-                return Response({"data": None,
-                                 "message": "Welcome"},
-                                status=status.HTTP_200_OK)
+                    return Response({"data": None,
+                                     "message": "Welcome"},
+                                    status=status.HTTP_200_OK)
+                else:
+                    return Response({"data": None,
+                                     "message": "Error"},
+                                    status=status.HTTP_400_BAD_REQUEST)
             return Response({"data": serializer.errors,
                              "message": "Something went wrong"},
                             status=status.HTTP_400_BAD_REQUEST)
