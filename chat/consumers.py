@@ -28,6 +28,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         videoUrl = text_data_json.get('videoUrl')
         message = text_data_json.get('message')
         playStatus= text_data_json.get('playStatus')
+        print(text_data_json)
         if videoUrl:
             await self.channel_layer.group_send(
                 self.room_group_name,

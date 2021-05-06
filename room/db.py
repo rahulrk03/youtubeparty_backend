@@ -24,7 +24,6 @@ if 'db_port' in MANGO_JWT_SETTINGS:
         username=username, password=password, db_host=db_host_mongo,
         db_port_mongo=db_port_mongo, db_name=db_name)
 else:
-    print("hello")
     mongo_uri = "mongodb+srv://{username}:{password}@{host}/{db_name}".format(
         username=username, password=password, host=db_host_mongo, db_name=db_name)
 
