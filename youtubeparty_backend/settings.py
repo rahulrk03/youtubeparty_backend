@@ -87,13 +87,6 @@ WSGI_APPLICATION = 'youtubeparty_backend.wsgi.application'
 #     }
 # }
 
-MANGO_JWT_SETTINGS = {
-    "db_host": "cluster0.jqugg.mongodb.net", # Use srv host if connecting with MongoDB Atlas Cluster
-    #"db_port": "27017", # Don't include this field if connecting with MongoDB Atlas Cluster
-    "db_name": "youtubeparty",
-    "db_user": "youtubeparty_admin",
-    "db_pass": "oW8fHCOoerClkj6O"
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
